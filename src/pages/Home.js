@@ -11,10 +11,9 @@ const Home = () => {
   useEffect(() => {
     (async () => {
       const userInfo = await checkAuth();
-      if (!userInfo) {
-        const redirectUri = encodeURIComponent(window.location.href);
-      window.location.href = `https://crmxeno.up.railway.app/oauth2/authorization/google?redirect_uri=${redirectUri}`;
-} else {
+     if (!userInfo) {
+      window.location.href = 'https://crmxeno.up.railway.app/oauth2/authorization/google';
+     }else {
         setUser(userInfo);
         setChecking(false);
       }
