@@ -12,8 +12,9 @@ const Home = () => {
     (async () => {
       const userInfo = await checkAuth();
      if (!userInfo) {
-      window.location.href = 'https://crmxeno.up.railway.app/oauth2/authorization/google';
-     }else {
+       const redirectUri = encodeURIComponent(window.location.href);
+        window.location.href = `http://localhost:8080/oauth2/authorization/google?redirect_uri=${redirectUri}`;
+      }else {
         setUser(userInfo);
         setChecking(false);
       }
